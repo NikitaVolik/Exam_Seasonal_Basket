@@ -167,7 +167,7 @@ app.get("/api/items", auth, async (req, res) => {
 
     res.json(rows)
   } catch {
-    res.status(500).json({ message: "Не удалось загрузить записи" })
+    res.status(500).json({ message: "Не удалось загрузить заказы" })
   }
 })
 

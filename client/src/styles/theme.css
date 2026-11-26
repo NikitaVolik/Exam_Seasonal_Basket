@@ -22,7 +22,6 @@ input:focus-visible, select:focus-visible, textarea:focus-visible,
 button:focus-visible, a:focus-visible { outline: 2px solid var(--color-primary); }
 .card:not(:has(> .card-body)) { padding: 16px; }
 .card-body { padding: 16px; }
-.status-badge { display: inline-block; padding: 2px 8px; border: var(--radius-pill); background: #FFE4AA; color: var(--color-text); }
 .page { padding-top: 24px; padding-bottom: 24px; }
 .site-header { padding: 16px 0; border-bottom: 1px solid var(--color-border); }
 a { text-decoration: underline; text-underline-offset: 3px; }
@@ -51,4 +50,22 @@ small { font-size: var(--fs-small); color: #396C27; }
   height: auto;
   aspect-ratio: 16 / 9;
   object-fit: cover;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .notice {
+    animation: notice-in 180ms ease-out;
+  }
+
+  @keyframes notice-in {
+    from {
+      opacity: 0;
+      transform: translateY(8px);
+    }
+
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
 }

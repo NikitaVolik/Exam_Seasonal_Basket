@@ -82,7 +82,7 @@ export default function App() {
         {page}
       </main>
       <footer className='container page'>
-        <small>Учебный сервис</small>
+        <small>«Сезонная корзина»</small>
       </footer>
     </>
   )
