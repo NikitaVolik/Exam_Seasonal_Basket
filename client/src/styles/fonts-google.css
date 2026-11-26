@@ -1,0 +1,21 @@
+/* Google Fonts: @import должен стоять перед всеми CSS-правилами.
+   В main.jsx подключи этот файл вместо fonts-local.css. */
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;700&display=swap');
+
+/* Пример трёх шрифтов: замени активный @import этой строкой
+  (не подключай оба запроса одновременно):
+@import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=Oswald:wght@200..700&family=Roboto:wght@400;700&display=swap');
+*/
+
+:root {
+  --font-main: 'Oswald', sans-serif;
+  --font-heading: var(--font-main);
+  --font-accent: var(--font-main);
+
+  /* Для примера с тремя шрифтами замени строки выше:
+  --font-main: 'Roboto', sans-serif;
+  --font-heading: 'Oswald', sans-serif;
+  --font-accent: 'Lora', serif;
+  */
+}
