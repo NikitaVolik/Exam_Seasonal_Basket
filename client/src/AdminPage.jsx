@@ -25,7 +25,11 @@ export default function AdminPage() {
     }
   }, [])
 
-  const filtered = items.filter(item => !status || item.status === status).sort((a, b) => sort === 'asc' ? a.id - b.id : b.id - a.id)
+  const filtered = items.filter(item => !status || item.status === status).sort((a, b) => {
+    const byValue = Number(a.total_price) - Number(b.total_price)
+    const order = byValue || a.id - b.id
+    return sort === 'asc' ? order : -order
+  })
   const totalPages = Math.max(1, Math.ceil(filtered.length / 4))
   const currentPage = Math.min(page, totalPages)
   const visible = filtered.slice((currentPage - 1) * 4, currentPage * 4)
@@ -82,8 +86,8 @@ export default function AdminPage() {
               setPage(1)
             }}
           >
-            <option value="desc">Сначала новые</option>
-            <option value="asc">Сначала старые</option>
+            <option value="desc">Сначала дороже</option>
+            <option value="asc">Сначала дешевле</option>
           </select>
         </label>
         <a href="/admin">Обновить список</a>
