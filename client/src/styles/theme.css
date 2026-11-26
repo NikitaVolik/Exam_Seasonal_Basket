@@ -27,7 +27,7 @@ button:focus-visible, a:focus-visible { outline: 2px solid var(--color-primary);
 .site-header { padding: 16px 0; border-bottom: 1px solid var(--color-border); }
 a { text-decoration: underline; text-underline-offset: 3px; }
 small { font-size: var(--fs-small); color: #396C27; }
-.field-error { color: #b42345; }
+.field-error { color: #B42345; }
 .btn { transition: background-color .2s, transform .2s; }
 .btn:active { transform: scale(.98); }
 .notice {
@@ -44,4 +44,11 @@ small { font-size: var(--fs-small); color: #396C27; }
 }
 .order-summary p {
   margin: 0;
+}
+.card-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
 }

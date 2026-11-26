@@ -15,6 +15,7 @@ export default function NewItemPage() {
   })
   const [saving, setSaving] = useState(false)
   const [error, setError] = useState('')
+  const [errors, setErrors] = useState({})
   const [message, setMessage] = useState('')
 
   const quantity = Number(form.quantity)
@@ -35,6 +36,7 @@ export default function NewItemPage() {
 
     setSaving(true)
     setError('')
+    setErrors({})
     setMessage('')
     
     try {
@@ -51,6 +53,7 @@ export default function NewItemPage() {
       setMessage(`Заказ № ${data.id} оформлен. Итог: ` + Number(data.total_price).toLocaleString('ru-RU') + ' ₽')
     } catch (err) {
       setError(err.message)
+      setErrors(err.fields || {})
     } finally {
       setSaving(false)
     }
@@ -59,7 +62,7 @@ export default function NewItemPage() {
   return (
     <>
       <h1>Новый заказ</h1>
-      <form className="card stack" onSubmit={submit}>
+      <form className="card stack" onSubmit={submit} noValidate>
         <label className="field">
           <span>Набор</span>
           <select
@@ -76,6 +79,9 @@ export default function NewItemPage() {
               </option>
             ))}
           </select>
+          {errors.title && (
+            <small className="field-error">{errors.title}</small>
+          )}
         </label>
         <label className="field">
           <span>Количество наборов</span>
@@ -90,6 +96,9 @@ export default function NewItemPage() {
             step="1"
             disabled={saving}
           />
+          {errors.quantity && (
+            <small className="field-error">{errors.quantity}</small>
+          )}
         </label>
         <label className="field">
           <span>Дата самовывоза</span>
@@ -102,6 +111,9 @@ export default function NewItemPage() {
             maxLength={10}
             disabled={saving}
           />
+          {errors.pickup_date && (
+            <small className="field-error">{errors.pickup_date}</small>
+          )}
         </label>
         {error && <p className="form-error" role="alert">{error}</p>}
         {message && <p className="form-message" role="status">{message} <a href="/">Мои заказы</a></p>}
