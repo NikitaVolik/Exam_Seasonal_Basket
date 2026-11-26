@@ -1,14 +1,47 @@
 /* Нейтральные дополнения. Цвета и шрифт заданы в framework.css. */
+:root {
+  --color-bg: #FFFFFF;
+  --color-surface: #F3F8E9;
+  --color-text: #262F25;
+  --color-primary: #244D36;
+  --color-primary-hover: #193B28;
+  --color-secondary: var(--color-primary);
+  --font-main: Arial, sans-serif;
+  --font-heading: Georgia, sans-serif;
+  --font-accent: var(--font-main);
+  --fs-h1: 36px;
+  --fs-h2: 24px;
+  --fs-h3: 18px;
+  --fs-body: 16px;
+  --fs-small: 12px;
+  --radius-md: 12px;
+  --radius-pill: 999px;
+}
+
+input:focus-visible, select:focus-visible, textarea:focus-visible,
+button:focus-visible, a:focus-visible { outline: 2px solid var(--color-primary); }
+.card:not(:has(> .card-body)) { padding: 16px; }
+.card-body { padding: 16px; }
+.status-badge { display: inline-block; padding: 2px 8px; border: var(--radius-pill); background: #FFE4AA; color: var(--color-text); }
 .page { padding-top: 24px; padding-bottom: 24px; }
 .site-header { padding: 16px 0; border-bottom: 1px solid var(--color-border); }
 a { text-decoration: underline; text-underline-offset: 3px; }
-small { font-size: var(--fs-small); }
+small { font-size: var(--fs-small); color: #396C27; }
 .field-error { color: #b42345; }
 .btn { transition: background-color .2s, transform .2s; }
 .btn:active { transform: scale(.98); }
 .notice {
   position: fixed; right: 16px; bottom: 16px; z-index: 10;
   width: min(420px, calc(100% - 32px)); padding: 16px;
-  background: var(--color-surface); border: 1px solid var(--color-border);
+  background: #FFE4AA; color: var(--color-text);
   box-shadow: 0 4px 20px #0002;
+}
+.order-summary {
+  flex-wrap: wrap;
+  gap: 16px;
+  align-items: center;
+  justify-content: space-between;
+}
+.order-summary p {
+  margin: 0;
 }
